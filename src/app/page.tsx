@@ -4,10 +4,19 @@ import TodoList from "@/app/components/TodoList";
 import TodoInput from "@/app/components/TodoInput";
 import { Todo, TodoStatus } from "@/app/utils/Todo";
 import useLocalStorage from "@/app/hooks/useLocalStorage";
-import { TodosContext } from "./context/todos-context";
+import { TodosContext } from "@/app/context/todos-context";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import TodoFilter from "./components/TodoFilter";
 
 export default function Home() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
+  const [firstRender, setFirstRender] = useState(true);
+  const params = useSearchParams();
+
+  useEffect(() => {
+    setFirstRender(false);
+  }, []);
 
   const addTodo = (title: string) => {
     if (!title) return;
@@ -41,15 +50,27 @@ export default function Home() {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
+  const getActiveTodos = () => {
+    if (params.get("complete") === "false") {
+      return todos.filter((todo) => todo.status === TodoStatus.INCOMPLETE);
+    } else if (params.get("complete") === "true") {
+      return todos.filter((todo) => todo.status === TodoStatus.COMPLETE);
+    }
+    return todos;
+  };
+
+  if (firstRender) return <></>;
+
   return (
     <div className="HomePage w-screen h-screen flex justify-center items-center">
-      <div className="container max-w-md">
+      <div className="container max-w-md h-2/3">
         <h1 className="text-3xl">Todo List</h1>
         <hr />
         <TodosContext.Provider
-          value={{ todos, addTodo, toggleTodo, deleteTodo }}
+          value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo }}
         >
           <TodoInput className="my-2" />
+          <TodoFilter />
           <TodoList />
         </TodosContext.Provider>
       </div>
