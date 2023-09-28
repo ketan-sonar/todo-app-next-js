@@ -1,0 +1,38 @@
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from "react";
+import { useTodosContext } from "@/app/context/todos-context";
+
+type TodoInputProps = {} & HTMLAttributes<HTMLDivElement>;
+
+export default function TodoInput({ className }: TodoInputProps) {
+  const { addTodo } = useTodosContext();
+  const [newTodoTitle, setNewTodoTitle] = useState("");
+  const inputRef = useRef<HTMLInputElement>() as RefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const handleAddTodo = () => {
+    addTodo(newTodoTitle);
+    setNewTodoTitle("");
+  };
+
+  return (
+    <div className={`space-x-2 ${className} flex`}>
+      <input
+        className="border px-2 py-1 text-lg grow"
+        type="text"
+        value={newTodoTitle}
+        onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
+        onChange={(e) => setNewTodoTitle(e.target.value)}
+        ref={inputRef}
+      />
+      <button
+        className="rounded px-2 py-1 text-lg bg-green-600 text-white"
+        onClick={handleAddTodo}
+      >
+        Add
+      </button>
+    </div>
+  );
+}
