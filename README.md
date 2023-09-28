@@ -1,6 +1,7 @@
 # Todo App using NextJS
 
-A simple Todo Application made using NextJS
+A simple Todo Application made using NextJS.  
+[Click here](https://todo-app-next-js-ntfo.vercel.app/) to see the deployed version.
 
 ## Tech Stack Used
 
