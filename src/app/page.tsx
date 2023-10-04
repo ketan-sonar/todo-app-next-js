@@ -1,13 +1,13 @@
 "use client";
 
-import TodoList from "@/app/components/TodoList";
-import TodoInput from "@/app/components/TodoInput";
-import { Todo, TodoStatus } from "@/app/utils/Todo";
-import useLocalStorage from "@/app/hooks/useLocalStorage";
-import { TodosContext } from "@/app/context/todos-context";
+import TodoList from "@/components/TodoList";
+import TodoInput from "@/components/TodoInput";
+import { Todo, TodoStatus } from "@/utils/Todo";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { TodosContext } from "@/context/todos-context";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import TodoFilter from "./components/TodoFilter";
+import TodoFilter from "../components/TodoFilter";
 
 export default function Home() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
