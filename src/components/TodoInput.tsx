@@ -18,9 +18,11 @@ export default function TodoInput({ className }: TodoInputProps) {
   };
 
   return (
-    <div className={`space-x-2 ${className} flex`}>
+    <div
+      className={`space-y-2 sm:space-y-0 sm:space-x-2 ${className} flex flex-col sm:flex-row`}
+    >
       <input
-        className="border px-2 py-1 text-lg grow"
+        className="border px-2 py-1 text-lg sm:grow"
         type="text"
         value={newTodoTitle}
         onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
