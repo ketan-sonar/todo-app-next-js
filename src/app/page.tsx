@@ -63,7 +63,7 @@ export default function Home() {
 
   return (
     <div className="HomePage w-screen h-screen flex justify-center items-center">
-      <div className="container max-w-md h-2/3 mx-4">
+      <div className="container max-w-md h-2/3 mx-4 px-4">
         <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
         <hr />
         <TodosContext.Provider
