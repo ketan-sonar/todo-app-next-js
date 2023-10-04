@@ -7,7 +7,7 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { TodosContext } from "@/context/todos-context";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import TodoFilter from "../components/TodoFilter";
+import TodoFilter from "@/components/TodoFilter";
 
 export default function Home() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);

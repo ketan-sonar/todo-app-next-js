@@ -1,5 +1,5 @@
-import { Todo, TodoStatus } from "@/app/utils/Todo";
-import { useTodosContext } from "@/app/context/todos-context";
+import { Todo, TodoStatus } from "@/utils/Todo";
+import { useTodosContext } from "@/context/todos-context";
 
 type TodoItemProps = {
   todo: Todo;

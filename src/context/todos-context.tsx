@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { Todo } from "@/app/utils/Todo";
+import { Todo } from "@/utils/Todo";
 
 export type TodoContextData = {
   todos: Todo[];
