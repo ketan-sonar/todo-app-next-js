@@ -14,7 +14,7 @@ export function TodoItem({ todo }: TodoItemProps) {
         className="w-5 h-5 rounded-full self-start mt-1"
         type="checkbox"
         checked={todo.status === TodoStatus.COMPLETE}
-        onClick={() => toggleTodo(todo.id)}
+        onChange={() => toggleTodo(todo.id)}
       />
       <h3
         className={`text-xl ${
