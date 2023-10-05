@@ -65,18 +65,31 @@ export default function Home() {
     return todos;
   };
 
+  const getTodosCounts = () => {
+    let completeCount = 0;
+    todos.forEach(
+      (todo) => todo.status === TodoStatus.COMPLETE && completeCount++
+    );
+
+    return {
+      totalCount: todos.length,
+      completeCount,
+      incompleteCount: todos.length - completeCount,
+    };
+  };
+
   if (firstRender) return <></>;
 
   return (
     <div className="HomePage w-screen h-screen flex justify-center items-center">
-      <div className="container max-w-xs sm:max-w-md h-2/3 mx-4">
+      <div className="container max-w-xs sm:max-w-lg h-2/3 mx-4">
         <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
         <hr />
         <TodosContext.Provider
           value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo }}
         >
           <TodoInput className="my-2" />
-          <TodoFilter handleDeleteCompleted={deleteCompleted} />
+          <TodoFilter todosCounts={getTodosCounts()} handleDeleteCompleted={deleteCompleted} />
           <TodoList />
         </TodosContext.Provider>
       </div>

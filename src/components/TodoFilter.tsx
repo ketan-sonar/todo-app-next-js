@@ -3,16 +3,36 @@ import Image from "next/image";
 import trashIcon from "@/public/trash.svg";
 
 type TodoFilterProps = {
+  todosCounts: {
+    totalCount: number;
+    completeCount: number;
+    incompleteCount: number;
+  };
   handleDeleteCompleted?: () => void;
 };
 
-export default function TodoFilter({ handleDeleteCompleted }: TodoFilterProps) {
+export default function TodoFilter({
+  handleDeleteCompleted,
+  todosCounts,
+}: TodoFilterProps) {
   return (
     <div className="flex justify-between">
-      <div className="space-x-2 underline">
-        <Link href={"/"}>All</Link>
-        <Link href={"/?complete=false"}>Pending</Link>
-        <Link href={"/?complete=true"}>Completed</Link>
+      <div className="space-x-2">
+        <Link href={"/"}>
+          <button className="rounded bg-indigo-500 text-white px-1">
+            All ({todosCounts.totalCount})
+          </button>
+        </Link>
+        <Link href={"/?complete=false"}>
+          <button className="rounded bg-indigo-500 text-white px-1">
+            Pending ({todosCounts.incompleteCount})
+          </button>
+        </Link>
+        <Link href={"/?complete=true"}>
+          <button className="rounded bg-indigo-500 text-white px-1">
+            Completed ({todosCounts.completeCount})
+          </button>
+        </Link>
       </div>
       {handleDeleteCompleted && (
         <div onClick={handleDeleteCompleted}>

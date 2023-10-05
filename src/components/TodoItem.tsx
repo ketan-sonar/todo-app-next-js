@@ -11,7 +11,7 @@ export function TodoItem({ todo }: TodoItemProps) {
   const { toggleTodo, deleteTodo } = useTodosContext();
 
   return (
-    <div className="flex m-2 space-x-2 items-center">
+    <div className="flex space-x-2 border px-2 py-1 my-2 rounded">
       <input
         className="w-5 h-5 rounded-full self-start mt-1"
         type="checkbox"
@@ -26,7 +26,7 @@ export function TodoItem({ todo }: TodoItemProps) {
         {todo.title}
       </h3>
       <button
-        className="rounded bg-red-500 p-1"
+        className="rounded bg-red-500 p-1 self-start m-1"
         onClick={() => deleteTodo(todo.id)}
       >
         <Image src={trashIcon} alt="Delete" width={12} height={12} />
