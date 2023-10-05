@@ -50,6 +50,12 @@ export default function Home() {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
+  const deleteCompleted = () => {
+    setTodos((prev) =>
+      prev.filter((todo) => todo.status !== TodoStatus.COMPLETE)
+    );
+  };
+
   const getActiveTodos = () => {
     if (params.get("complete") === "false") {
       return todos.filter((todo) => todo.status === TodoStatus.INCOMPLETE);
@@ -70,7 +76,7 @@ export default function Home() {
           value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo }}
         >
           <TodoInput className="my-2" />
-          <TodoFilter />
+          <TodoFilter handleDeleteCompleted={deleteCompleted} />
           <TodoList />
         </TodosContext.Provider>
       </div>
