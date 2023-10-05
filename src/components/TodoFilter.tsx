@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import trashIcon from "@/public/trash.svg";
 
 type TodoFilterProps = {
   handleDeleteCompleted?: () => void;
@@ -14,8 +16,17 @@ export default function TodoFilter({ handleDeleteCompleted }: TodoFilterProps) {
       </div>
       {handleDeleteCompleted && (
         <div onClick={handleDeleteCompleted}>
-          <button className="rounded bg-red-500 text-white px-1">
+          <button className="hidden sm:block rounded bg-red-500 text-white px-1">
             Delete Completed
+          </button>
+          <button className="sm:hidden flex space-x-1 rounded bg-red-500 p-1 text-white items-center">
+            <Image
+              src={trashIcon}
+              alt="Delete Completed"
+              width={16}
+              height={16}
+            />
+            <div>Completed</div>
           </button>
         </div>
       )}
