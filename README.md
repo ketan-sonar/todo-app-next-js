@@ -14,6 +14,6 @@ A simple Todo Application made using NextJS.
 ## Local Setup
 
 ```sh
-npm install
-npm run start
+pnpm install
+pnpm run start
 ```
