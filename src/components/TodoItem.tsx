@@ -1,5 +1,7 @@
 import { Todo, TodoStatus } from "@/utils/Todo";
 import { useTodosContext } from "@/context/todos-context";
+import Image from "next/image";
+import trashIcon from "@/public/trash.svg";
 
 type TodoItemProps = {
   todo: Todo;
@@ -24,10 +26,10 @@ export function TodoItem({ todo }: TodoItemProps) {
         {todo.title}
       </h3>
       <button
-        className="rounded bg-red-500 text-white px-1 py-0 text-sm"
+        className="rounded bg-red-500 p-1"
         onClick={() => deleteTodo(todo.id)}
       >
-        Delete
+        <Image src={trashIcon} alt="Delete" width={12} height={12} />
       </button>
     </div>
   );
