@@ -16,37 +16,28 @@ export default function TodoFilter({
   todosCounts,
 }: TodoFilterProps) {
   return (
-    <div className="flex justify-between">
-      <div className="space-x-2">
+    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:justify-between">
+      <div className="flex justify-between sm:space-x-2">
         <Link href={"/"}>
-          <button className="rounded bg-indigo-500 text-white px-1">
+          <button className="rounded bg-indigo-500 text-white px-2">
             All ({todosCounts.totalCount})
           </button>
         </Link>
         <Link href={"/?complete=false"}>
-          <button className="rounded bg-indigo-500 text-white px-1">
+          <button className="rounded bg-indigo-500 text-white px-2">
             Pending ({todosCounts.incompleteCount})
           </button>
         </Link>
         <Link href={"/?complete=true"}>
-          <button className="rounded bg-indigo-500 text-white px-1">
+          <button className="rounded bg-indigo-500 text-white px-2">
             Completed ({todosCounts.completeCount})
           </button>
         </Link>
       </div>
       {handleDeleteCompleted && (
         <div onClick={handleDeleteCompleted}>
-          <button className="hidden sm:block rounded bg-red-500 text-white px-1">
+          <button className="rounded bg-red-500 text-white px-1 w-full">
             Delete Completed
-          </button>
-          <button className="sm:hidden flex space-x-1 rounded bg-red-500 p-1 text-white items-center">
-            <Image
-              src={trashIcon}
-              alt="Delete Completed"
-              width={16}
-              height={16}
-            />
-            <div>Completed</div>
           </button>
         </div>
       )}
