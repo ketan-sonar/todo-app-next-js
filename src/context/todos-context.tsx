@@ -6,6 +6,11 @@ export type TodoContextData = {
   addTodo: (title: string) => void;
   toggleTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
+  getTodosCounts: () => {
+    totalCount: number;
+    completeCount: number;
+    incompleteCount: number;
+  };
 };
 
 export const TodosContext = createContext<TodoContextData | undefined>(

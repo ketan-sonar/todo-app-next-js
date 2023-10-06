@@ -86,11 +86,10 @@ export default function Home() {
         <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
         <hr className="border border-stone-100" />
         <TodosContext.Provider
-          value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo }}
+          value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo, getTodosCounts }}
         >
           <TodoInput className="my-2" />
           <TodoFilter
-            todosCounts={getTodosCounts()}
             handleDeleteCompleted={deleteCompleted}
           />
           <TodoList />

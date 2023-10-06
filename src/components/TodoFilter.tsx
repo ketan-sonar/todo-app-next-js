@@ -1,20 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
-import trashIcon from "@/public/trash.svg";
+import { useTodosContext } from "@/context/todos-context";
 
 type TodoFilterProps = {
-  todosCounts: {
-    totalCount: number;
-    completeCount: number;
-    incompleteCount: number;
-  };
   handleDeleteCompleted?: () => void;
 };
 
-export default function TodoFilter({
-  handleDeleteCompleted,
-  todosCounts,
-}: TodoFilterProps) {
+export default function TodoFilter({ handleDeleteCompleted }: TodoFilterProps) {
+  const { getTodosCounts } = useTodosContext();
+  const todosCounts = getTodosCounts();
   return (
     <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:justify-between">
       <div className="flex justify-between sm:space-x-2">
