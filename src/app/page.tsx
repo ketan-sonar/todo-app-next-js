@@ -88,7 +88,7 @@ export default function Home() {
           <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
           <ThemeSwitcher />
         </div>
-        <hr className="border border-stone-100" />
+        <hr className="border dark:border-stone-100" />
         <TodosContext.Provider
           value={{
             todos: getActiveTodos(),
