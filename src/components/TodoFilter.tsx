@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { useTodosContext } from "@/context/todos-context";
+import Link from "next/link";
 
 type TodoFilterProps = {
   handleDeleteCompleted?: () => void;

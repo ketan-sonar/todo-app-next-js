@@ -1,5 +1,5 @@
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from "react";
 import { useTodosContext } from "@/context/todos-context";
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from "react";
 
 type TodoInputProps = {} & HTMLAttributes<HTMLDivElement>;
 

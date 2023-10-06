@@ -1,6 +1,6 @@
-import { HTMLAttributes } from "react";
 import { TodoItem } from "@/components/TodoItem";
 import { useTodosContext } from "@/context/todos-context";
+import { HTMLAttributes } from "react";
 
 type TodoListProps = {} & HTMLAttributes<HTMLDivElement>;
 

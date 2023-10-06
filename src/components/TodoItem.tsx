@@ -1,7 +1,7 @@
-import { Todo, TodoStatus } from "@/utils/Todo";
 import { useTodosContext } from "@/context/todos-context";
-import Image from "next/image";
 import trashIcon from "@/public/trash.svg";
+import { Todo, TodoStatus } from "@/utils/Todo";
+import Image from "next/image";
 
 type TodoItemProps = {
   todo: Todo;

@@ -1,9 +1,9 @@
 "use client";
+import moon from "@/public/moon-fill.svg";
+import sun from "@/public/sun.svg";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { HTMLAttributes, useEffect, useState } from "react";
-import moon from "@/public/moon-fill.svg";
-import sun from "@/public/sun.svg";
 
 type ThemeSwitcherProps = {} & HTMLAttributes<HTMLButtonElement>;
 
