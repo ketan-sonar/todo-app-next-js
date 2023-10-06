@@ -8,6 +8,7 @@ import { TodosContext } from "@/context/todos-context";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import TodoFilter from "@/components/TodoFilter";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Home() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
@@ -83,15 +84,22 @@ export default function Home() {
   return (
     <div className="HomePage w-screen h-screen flex justify-center items-center dark:bg-black dark:text-stone-100">
       <div className="container max-w-xs sm:max-w-lg h-2/3 mx-4">
-        <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
+        <div className="header flex justify-between">
+          <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
+          <ThemeSwitcher />
+        </div>
         <hr className="border border-stone-100" />
         <TodosContext.Provider
-          value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo, getTodosCounts }}
+          value={{
+            todos: getActiveTodos(),
+            addTodo,
+            toggleTodo,
+            deleteTodo,
+            getTodosCounts,
+          }}
         >
           <TodoInput className="my-2" />
-          <TodoFilter
-            handleDeleteCompleted={deleteCompleted}
-          />
+          <TodoFilter handleDeleteCompleted={deleteCompleted} />
           <TodoList />
         </TodosContext.Provider>
       </div>
