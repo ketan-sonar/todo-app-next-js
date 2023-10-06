@@ -81,15 +81,18 @@ export default function Home() {
   if (firstRender) return <></>;
 
   return (
-    <div className="HomePage w-screen h-screen flex justify-center items-center">
+    <div className="HomePage w-screen h-screen flex justify-center items-center dark:bg-black dark:text-stone-100">
       <div className="container max-w-xs sm:max-w-lg h-2/3 mx-4">
         <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
-        <hr />
+        <hr className="border border-stone-100" />
         <TodosContext.Provider
           value={{ todos: getActiveTodos(), addTodo, toggleTodo, deleteTodo }}
         >
           <TodoInput className="my-2" />
-          <TodoFilter todosCounts={getTodosCounts()} handleDeleteCompleted={deleteCompleted} />
+          <TodoFilter
+            todosCounts={getTodosCounts()}
+            handleDeleteCompleted={deleteCompleted}
+          />
           <TodoList />
         </TodosContext.Provider>
       </div>

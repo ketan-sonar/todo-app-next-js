@@ -11,7 +11,7 @@ export function TodoItem({ todo }: TodoItemProps) {
   const { toggleTodo, deleteTodo } = useTodosContext();
 
   return (
-    <div className="flex space-x-2 border px-2 py-1 my-2 rounded">
+    <div className="flex space-x-2 border px-2 py-1 my-2 rounded dark:border-stone-700">
       <input
         className="w-5 h-5 rounded-full self-start mt-1"
         type="checkbox"
