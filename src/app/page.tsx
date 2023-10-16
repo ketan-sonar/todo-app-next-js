@@ -82,7 +82,7 @@ export default function Home() {
   if (firstRender) return <></>;
 
   return (
-    <div className="HomePage w-screen h-screen flex justify-center items-center dark:bg-neutral-900 dark:text-stone-100">
+    <div className="HomePage w-screen h-screen flex justify-center items-center dark:bg-[#02040A] dark:text-stone-100">
       <div className="container max-w-xs sm:max-w-lg h-2/3 mx-4">
         <div className="header flex justify-between">
           <h1 className="text-3xl text-center sm:text-left">Todo List</h1>
