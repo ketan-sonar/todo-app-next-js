@@ -17,3 +17,10 @@ A simple Todo Application made using NextJS.
 pnpm install
 pnpm run start
 ```
+
+## Local Setup using Docker Recommended
+
+```sh
+docker build . -t todo-app
+docker run -p 3000:3000 todo-app
+```
