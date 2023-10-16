@@ -11,16 +11,16 @@ A simple Todo Application made using NextJS.
 1. Browser localStorage API for data persistance (with a custom React Hook)
 1. Also used React Context API for state management
 
-## Local Setup
-
-```sh
-pnpm install
-pnpm run start
-```
-
 ## Local Setup using Docker Recommended
 
 ```sh
 docker build . -t todo-app
 docker run -p 3000:3000 todo-app
+```
+
+## Local Setup
+
+```sh
+pnpm install
+pnpm run start
 ```
