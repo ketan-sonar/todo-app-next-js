@@ -23,5 +23,5 @@ docker run -p 3000:3000 todo-app
 
 ```sh
 pnpm install
-pnpm run start
+pnpm run dev
 ```
