@@ -12,7 +12,7 @@ A simple Todo Application made using NextJS.
 1. Also used React Context API for state management.
 1. Docker - haven't deployed using Docker but using it for setting up a the local development environment.
 
-## Local Setup using Docker Recommended
+## Local Setup using Docker (Recommended)
 
 ```sh
 docker build -t todo-app .
